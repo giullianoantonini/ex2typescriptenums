@@ -1,17 +1,17 @@
 import { Prioridade } from "./enums";
 import { Tarefa } from "./types";
 
-class novaTarefa implements Tarefa {
+class NovaTarefa implements Tarefa {
   titulo: string;
   descricao: string;
   concluida: boolean;
   prioridade: Prioridade;
 
   constructor(titulo: string, descricao: string, prioridade: Prioridade) {
-    (this.titulo = titulo),
-      (this.descricao = descricao),
-      (this.concluida = false),
-      (this.prioridade = prioridade);
+    this.titulo = titulo,
+      this.descricao = descricao,
+      this.concluida = false,
+      this.prioridade = prioridade;
   }
 }
 
@@ -20,7 +20,7 @@ function criarTarefa(
   descricao: string,
   prioridade: Prioridade
 ): Tarefa {
-  return new novaTarefa(titulo, descricao, prioridade);
+  return new NovaTarefa(titulo, descricao, prioridade);
 }
 
 let tarefa1 = criarTarefa(
@@ -43,8 +43,8 @@ function exibirTarefa(tarefa: Tarefa): void {
 
 exibirTarefa(tarefa1);
 
-function concluirTarefa(tarefa: Tarefa) {
-  return (tarefa.concluida = true);
+function concluirTarefa(tarefa: Tarefa): void {
+  (tarefa.concluida = true);
 }
 
 concluirTarefa(tarefa1);
